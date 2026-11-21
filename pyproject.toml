@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "difftool"
+version = "1.0.0"
+description = "difftool —— 零依赖的文本差异命令行工具:unified / 并排 / 词级对比,相似度与统计(标准库 difflib,渲染复用 cjktable)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    # 自研终端排版微库(CJK 对齐),与项目集共同维护
+    "cjktable @ git+https://github.com/JAKE1266/cjktable.git",
+]
+license = { text = "MIT" }
+authors = [{ name = "JAKE1266" }]
+keywords = ["diff", "text", "compare", "cli", "difflib"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Simplified)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Version Control :: Diff",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/JAKE1266/difftool"
+Issues = "https://github.com/JAKE1266/difftool/issues"
+
+[project.scripts]
+difftool = "difftool.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
